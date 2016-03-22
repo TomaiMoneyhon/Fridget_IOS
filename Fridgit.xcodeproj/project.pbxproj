@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		845251C71CA13ED300D23E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845251C61CA13ED300D23E45 /* AppDelegate.swift */; };
+		845251C91CA13ED300D23E45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845251C81CA13ED300D23E45 /* ViewController.swift */; };
+		845251CC1CA13ED300D23E45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845251CA1CA13ED300D23E45 /* Main.storyboard */; };
+		845251CF1CA13ED300D23E45 /* Fridgit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 845251CD1CA13ED300D23E45 /* Fridgit.xcdatamodeld */; };
+		845251D11CA13ED300D23E45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845251D01CA13ED300D23E45 /* Assets.xcassets */; };
+		845251D41CA13ED300D23E45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845251D21CA13ED300D23E45 /* LaunchScreen.storyboard */; };
+		845251DF1CA13ED300D23E45 /* FridgitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845251DE1CA13ED300D23E45 /* FridgitTests.swift */; };
+		845251EA1CA13ED300D23E45 /* FridgitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845251E91CA13ED300D23E45 /* FridgitUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		845251DB1CA13ED300D23E45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 845251BB1CA13ED300D23E45 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 845251C21CA13ED300D23E45;
+			remoteInfo = Fridgit;
+		};
+		845251E61CA13ED300D23E45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 845251BB1CA13ED300D23E45 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 845251C21CA13ED300D23E45;
+			remoteInfo = Fridgit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		845251C31CA13ED300D23E45 /* Fridgit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fridgit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		845251C61CA13ED300D23E45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		845251C81CA13ED300D23E45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		845251CB1CA13ED300D23E45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		845251CE1CA13ED300D23E45 /* Fridgit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fridgit.xcdatamodel; sourceTree = "<group>"; };
+		845251D01CA13ED300D23E45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		845251D31CA13ED300D23E45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		845251D51CA13ED300D23E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		845251DA1CA13ED300D23E45 /* FridgitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FridgitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		845251DE1CA13ED300D23E45 /* FridgitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgitTests.swift; sourceTree = "<group>"; };
+		845251E01CA13ED300D23E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		845251E51CA13ED300D23E45 /* FridgitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FridgitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		845251E91CA13ED300D23E45 /* FridgitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgitUITests.swift; sourceTree = "<group>"; };
+		845251EB1CA13ED300D23E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		845251C01CA13ED300D23E45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		845251D71CA13ED300D23E45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		845251E21CA13ED300D23E45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		845251BA1CA13ED300D23E45 = {
+			isa = PBXGroup;
+			children = (
+				845251C51CA13ED300D23E45 /* Fridgit */,
+				845251DD1CA13ED300D23E45 /* FridgitTests */,
+				845251E81CA13ED300D23E45 /* FridgitUITests */,
+				845251C41CA13ED300D23E45 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		845251C41CA13ED300D23E45 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				845251C31CA13ED300D23E45 /* Fridgit.app */,
+				845251DA1CA13ED300D23E45 /* FridgitTests.xctest */,
+				845251E51CA13ED300D23E45 /* FridgitUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		845251C51CA13ED300D23E45 /* Fridgit */ = {
+			isa = PBXGroup;
+			children = (
+				845251C61CA13ED300D23E45 /* AppDelegate.swift */,
+				845251C81CA13ED300D23E45 /* ViewController.swift */,
+				845251CA1CA13ED300D23E45 /* Main.storyboard */,
+				845251D01CA13ED300D23E45 /* Assets.xcassets */,
+				845251D21CA13ED300D23E45 /* LaunchScreen.storyboard */,
+				845251D51CA13ED300D23E45 /* Info.plist */,
+				845251CD1CA13ED300D23E45 /* Fridgit.xcdatamodeld */,
+			);
+			path = Fridgit;
+			sourceTree = "<group>";
+		};
+		845251DD1CA13ED300D23E45 /* FridgitTests */ = {
+			isa = PBXGroup;
+			children = (
+				845251DE1CA13ED300D23E45 /* FridgitTests.swift */,
+				845251E01CA13ED300D23E45 /* Info.plist */,
+			);
+			path = FridgitTests;
+			sourceTree = "<group>";
+		};
+		845251E81CA13ED300D23E45 /* FridgitUITests */ = {
+			isa = PBXGroup;
+			children = (
+				845251E91CA13ED300D23E45 /* FridgitUITests.swift */,
+				845251EB1CA13ED300D23E45 /* Info.plist */,
+			);
+			path = FridgitUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		845251C21CA13ED300D23E45 /* Fridgit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 845251EE1CA13ED300D23E45 /* Build configuration list for PBXNativeTarget "Fridgit" */;
+			buildPhases = (
+				845251BF1CA13ED300D23E45 /* Sources */,
+				845251C01CA13ED300D23E45 /* Frameworks */,
+				845251C11CA13ED300D23E45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fridgit;
+			productName = Fridgit;
+			productReference = 845251C31CA13ED300D23E45 /* Fridgit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		845251D91CA13ED300D23E45 /* FridgitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 845251F11CA13ED300D23E45 /* Build configuration list for PBXNativeTarget "FridgitTests" */;
+			buildPhases = (
+				845251D61CA13ED300D23E45 /* Sources */,
+				845251D71CA13ED300D23E45 /* Frameworks */,
+				845251D81CA13ED300D23E45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				845251DC1CA13ED300D23E45 /* PBXTargetDependency */,
+			);
+			name = FridgitTests;
+			productName = FridgitTests;
+			productReference = 845251DA1CA13ED300D23E45 /* FridgitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		845251E41CA13ED300D23E45 /* FridgitUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 845251F41CA13ED300D23E45 /* Build configuration list for PBXNativeTarget "FridgitUITests" */;
+			buildPhases = (
+				845251E11CA13ED300D23E45 /* Sources */,
+				845251E21CA13ED300D23E45 /* Frameworks */,
+				845251E31CA13ED300D23E45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				845251E71CA13ED300D23E45 /* PBXTargetDependency */,
+			);
+			name = FridgitUITests;
+			productName = FridgitUITests;
+			productReference = 845251E51CA13ED300D23E45 /* FridgitUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		845251BB1CA13ED300D23E45 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Tomai Moneyhon";
+				TargetAttributes = {
+					845251C21CA13ED300D23E45 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					845251D91CA13ED300D23E45 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 845251C21CA13ED300D23E45;
+					};
+					845251E41CA13ED300D23E45 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 845251C21CA13ED300D23E45;
+					};
+				};
+			};
+			buildConfigurationList = 845251BE1CA13ED300D23E45 /* Build configuration list for PBXProject "Fridgit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 845251BA1CA13ED300D23E45;
+			productRefGroup = 845251C41CA13ED300D23E45 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				845251C21CA13ED300D23E45 /* Fridgit */,
+				845251D91CA13ED300D23E45 /* FridgitTests */,
+				845251E41CA13ED300D23E45 /* FridgitUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		845251C11CA13ED300D23E45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				845251D41CA13ED300D23E45 /* LaunchScreen.storyboard in Resources */,
+				845251D11CA13ED300D23E45 /* Assets.xcassets in Resources */,
+				845251CC1CA13ED300D23E45 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		845251D81CA13ED300D23E45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		845251E31CA13ED300D23E45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		845251BF1CA13ED300D23E45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				845251C91CA13ED300D23E45 /* ViewController.swift in Sources */,
+				845251C71CA13ED300D23E45 /* AppDelegate.swift in Sources */,
+				845251CF1CA13ED300D23E45 /* Fridgit.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		845251D61CA13ED300D23E45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				845251DF1CA13ED300D23E45 /* FridgitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		845251E11CA13ED300D23E45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				845251EA1CA13ED300D23E45 /* FridgitUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		845251DC1CA13ED300D23E45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 845251C21CA13ED300D23E45 /* Fridgit */;
+			targetProxy = 845251DB1CA13ED300D23E45 /* PBXContainerItemProxy */;
+		};
+		845251E71CA13ED300D23E45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 845251C21CA13ED300D23E45 /* Fridgit */;
+			targetProxy = 845251E61CA13ED300D23E45 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		845251CA1CA13ED300D23E45 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				845251CB1CA13ED300D23E45 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		845251D21CA13ED300D23E45 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				845251D31CA13ED300D23E45 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		845251EC1CA13ED300D23E45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		845251ED1CA13ED300D23E45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		845251EF1CA13ED300D23E45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Fridgit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Tomai.Fridgit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		845251F01CA13ED300D23E45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Fridgit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Tomai.Fridgit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		845251F21CA13ED300D23E45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FridgitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Tomai.FridgitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fridgit.app/Fridgit";
+			};
+			name = Debug;
+		};
+		845251F31CA13ED300D23E45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FridgitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Tomai.FridgitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fridgit.app/Fridgit";
+			};
+			name = Release;
+		};
+		845251F51CA13ED300D23E45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FridgitUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Tomai.FridgitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Fridgit;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		845251F61CA13ED300D23E45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FridgitUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Tomai.FridgitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Fridgit;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		845251BE1CA13ED300D23E45 /* Build configuration list for PBXProject "Fridgit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				845251EC1CA13ED300D23E45 /* Debug */,
+				845251ED1CA13ED300D23E45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		845251EE1CA13ED300D23E45 /* Build configuration list for PBXNativeTarget "Fridgit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				845251EF1CA13ED300D23E45 /* Debug */,
+				845251F01CA13ED300D23E45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		845251F11CA13ED300D23E45 /* Build configuration list for PBXNativeTarget "FridgitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				845251F21CA13ED300D23E45 /* Debug */,
+				845251F31CA13ED300D23E45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		845251F41CA13ED300D23E45 /* Build configuration list for PBXNativeTarget "FridgitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				845251F51CA13ED300D23E45 /* Debug */,
+				845251F61CA13ED300D23E45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		845251CD1CA13ED300D23E45 /* Fridgit.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				845251CE1CA13ED300D23E45 /* Fridgit.xcdatamodel */,
+			);
+			currentVersion = 845251CE1CA13ED300D23E45 /* Fridgit.xcdatamodel */;
+			path = Fridgit.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 845251BB1CA13ED300D23E45 /* Project object */;
+}
