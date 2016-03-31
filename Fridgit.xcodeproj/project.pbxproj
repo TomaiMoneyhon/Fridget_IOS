@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84136C4C1CAD012800C486CD /* InFridgeListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84136C4B1CAD012800C486CD /* InFridgeListViewDelegate.swift */; };
 		845251C71CA13ED300D23E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845251C61CA13ED300D23E45 /* AppDelegate.swift */; };
 		845251C91CA13ED300D23E45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845251C81CA13ED300D23E45 /* ViewController.swift */; };
 		845251CC1CA13ED300D23E45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845251CA1CA13ED300D23E45 /* Main.storyboard */; };
@@ -15,6 +16,15 @@
 		845251D41CA13ED300D23E45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845251D21CA13ED300D23E45 /* LaunchScreen.storyboard */; };
 		845251DF1CA13ED300D23E45 /* FridgitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845251DE1CA13ED300D23E45 /* FridgitTests.swift */; };
 		845251EA1CA13ED300D23E45 /* FridgitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845251E91CA13ED300D23E45 /* FridgitUITests.swift */; };
+		848B85611CA19327004DD62C /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B85601CA19327004DD62C /* ShoppingListViewController.swift */; };
+		848B85631CA1942C004DD62C /* InFridgeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B85621CA1942C004DD62C /* InFridgeListViewController.swift */; };
+		848B85651CA1954C004DD62C /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B85641CA1954C004DD62C /* RecipeListViewController.swift */; };
+		848B85671CA19582004DD62C /* ChosenRecipeIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B85661CA19582004DD62C /* ChosenRecipeIngredientsViewController.swift */; };
+		848B85691CA1959B004DD62C /* ChoosenRecipeDirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B85681CA1959B004DD62C /* ChoosenRecipeDirectionsViewController.swift */; };
+		848B856B1CA28443004DD62C /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B856A1CA28443004DD62C /* Ingredient.swift */; };
+		848B856D1CA29E76004DD62C /* CustomListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B856C1CA29E76004DD62C /* CustomListTableViewCell.swift */; };
+		848B856F1CA2A655004DD62C /* ShoppingListTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B856E1CA2A655004DD62C /* ShoppingListTableViewDelegate.swift */; };
+		848B85711CA83B4F004DD62C /* AddIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B85701CA83B4F004DD62C /* AddIngredientViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84136C4B1CAD012800C486CD /* InFridgeListViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InFridgeListViewDelegate.swift; sourceTree = "<group>"; };
 		845251C31CA13ED300D23E45 /* Fridgit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fridgit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845251C61CA13ED300D23E45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845251C81CA13ED300D23E45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +60,15 @@
 		845251E51CA13ED300D23E45 /* FridgitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FridgitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		845251E91CA13ED300D23E45 /* FridgitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgitUITests.swift; sourceTree = "<group>"; };
 		845251EB1CA13ED300D23E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		848B85601CA19327004DD62C /* ShoppingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingListViewController.swift; path = ../ShoppingListViewController.swift; sourceTree = "<group>"; };
+		848B85621CA1942C004DD62C /* InFridgeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InFridgeListViewController.swift; sourceTree = "<group>"; };
+		848B85641CA1954C004DD62C /* RecipeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeListViewController.swift; path = ../RecipeListViewController.swift; sourceTree = "<group>"; };
+		848B85661CA19582004DD62C /* ChosenRecipeIngredientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChosenRecipeIngredientsViewController.swift; path = ../ChosenRecipeIngredientsViewController.swift; sourceTree = "<group>"; };
+		848B85681CA1959B004DD62C /* ChoosenRecipeDirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoosenRecipeDirectionsViewController.swift; path = ../ChoosenRecipeDirectionsViewController.swift; sourceTree = "<group>"; };
+		848B856A1CA28443004DD62C /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		848B856C1CA29E76004DD62C /* CustomListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomListTableViewCell.swift; sourceTree = "<group>"; };
+		848B856E1CA2A655004DD62C /* ShoppingListTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewDelegate.swift; sourceTree = "<group>"; };
+		848B85701CA83B4F004DD62C /* AddIngredientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIngredientViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +121,17 @@
 			children = (
 				845251C61CA13ED300D23E45 /* AppDelegate.swift */,
 				845251C81CA13ED300D23E45 /* ViewController.swift */,
+				848B856A1CA28443004DD62C /* Ingredient.swift */,
+				848B85621CA1942C004DD62C /* InFridgeListViewController.swift */,
+				848B85601CA19327004DD62C /* ShoppingListViewController.swift */,
+				848B856E1CA2A655004DD62C /* ShoppingListTableViewDelegate.swift */,
+				84136C4B1CAD012800C486CD /* InFridgeListViewDelegate.swift */,
+				848B85641CA1954C004DD62C /* RecipeListViewController.swift */,
+				848B85681CA1959B004DD62C /* ChoosenRecipeDirectionsViewController.swift */,
+				848B85661CA19582004DD62C /* ChosenRecipeIngredientsViewController.swift */,
 				845251CA1CA13ED300D23E45 /* Main.storyboard */,
+				848B85701CA83B4F004DD62C /* AddIngredientViewController.swift */,
+				848B856C1CA29E76004DD62C /* CustomListTableViewCell.swift */,
 				845251D01CA13ED300D23E45 /* Assets.xcassets */,
 				845251D21CA13ED300D23E45 /* LaunchScreen.storyboard */,
 				845251D51CA13ED300D23E45 /* Info.plist */,
@@ -259,8 +289,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848B85691CA1959B004DD62C /* ChoosenRecipeDirectionsViewController.swift in Sources */,
+				848B85611CA19327004DD62C /* ShoppingListViewController.swift in Sources */,
 				845251C91CA13ED300D23E45 /* ViewController.swift in Sources */,
+				848B85671CA19582004DD62C /* ChosenRecipeIngredientsViewController.swift in Sources */,
+				84136C4C1CAD012800C486CD /* InFridgeListViewDelegate.swift in Sources */,
+				848B85651CA1954C004DD62C /* RecipeListViewController.swift in Sources */,
+				848B856D1CA29E76004DD62C /* CustomListTableViewCell.swift in Sources */,
+				848B856F1CA2A655004DD62C /* ShoppingListTableViewDelegate.swift in Sources */,
+				848B85711CA83B4F004DD62C /* AddIngredientViewController.swift in Sources */,
+				848B85631CA1942C004DD62C /* InFridgeListViewController.swift in Sources */,
 				845251C71CA13ED300D23E45 /* AppDelegate.swift in Sources */,
+				848B856B1CA28443004DD62C /* Ingredient.swift in Sources */,
 				845251CF1CA13ED300D23E45 /* Fridgit.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +528,7 @@
 				845251F01CA13ED300D23E45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		845251F11CA13ED300D23E45 /* Build configuration list for PBXNativeTarget "FridgitTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +537,7 @@
 				845251F31CA13ED300D23E45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		845251F41CA13ED300D23E45 /* Build configuration list for PBXNativeTarget "FridgitUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +546,7 @@
 				845251F61CA13ED300D23E45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
