@@ -12,6 +12,8 @@
 		84136C5A1CAD7DD400C486CD /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84136C561CAD7DD400C486CD /* RecipeListViewController.swift */; };
 		84136C5B1CAD7DD400C486CD /* ChoosenRecipeDirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84136C571CAD7DD400C486CD /* ChoosenRecipeDirectionsViewController.swift */; };
 		84136C5C1CAD7DD400C486CD /* ChosenRecipeIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84136C581CAD7DD400C486CD /* ChosenRecipeIngredientsViewController.swift */; };
+		84136C611CB12C8C00C486CD /* EditIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84136C601CB12C8C00C486CD /* EditIngredientViewController.swift */; };
+		84136C651CB152F600C486CD /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84136C641CB152F600C486CD /* Protocols.swift */; };
 		845251C71CA13ED300D23E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845251C61CA13ED300D23E45 /* AppDelegate.swift */; };
 		845251CC1CA13ED300D23E45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845251CA1CA13ED300D23E45 /* Main.storyboard */; };
 		845251CF1CA13ED300D23E45 /* Fridgit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 845251CD1CA13ED300D23E45 /* Fridgit.xcdatamodeld */; };
@@ -49,6 +51,8 @@
 		84136C561CAD7DD400C486CD /* RecipeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		84136C571CAD7DD400C486CD /* ChoosenRecipeDirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosenRecipeDirectionsViewController.swift; sourceTree = "<group>"; };
 		84136C581CAD7DD400C486CD /* ChosenRecipeIngredientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChosenRecipeIngredientsViewController.swift; sourceTree = "<group>"; };
+		84136C601CB12C8C00C486CD /* EditIngredientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditIngredientViewController.swift; sourceTree = "<group>"; };
+		84136C641CB152F600C486CD /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		845251C31CA13ED300D23E45 /* Fridgit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fridgit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845251C61CA13ED300D23E45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845251CB1CA13ED300D23E45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 				84136C581CAD7DD400C486CD /* ChosenRecipeIngredientsViewController.swift */,
 				848B85621CA1942C004DD62C /* InFridgeListViewController.swift */,
 				848B85701CA83B4F004DD62C /* AddIngredientViewController.swift */,
+				84136C601CB12C8C00C486CD /* EditIngredientViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 				848B856A1CA28443004DD62C /* Ingredient.swift */,
 				848B856E1CA2A655004DD62C /* ShoppingListTableViewDelegate.swift */,
 				84136C4B1CAD012800C486CD /* InFridgeListViewDelegate.swift */,
+				84136C641CB152F600C486CD /* Protocols.swift */,
 				848B856C1CA29E76004DD62C /* CustomListTableViewCell.swift */,
 				845251D01CA13ED300D23E45 /* Assets.xcassets */,
 				845251D21CA13ED300D23E45 /* LaunchScreen.storyboard */,
@@ -302,6 +308,8 @@
 				848B856D1CA29E76004DD62C /* CustomListTableViewCell.swift in Sources */,
 				848B856F1CA2A655004DD62C /* ShoppingListTableViewDelegate.swift in Sources */,
 				848B85711CA83B4F004DD62C /* AddIngredientViewController.swift in Sources */,
+				84136C611CB12C8C00C486CD /* EditIngredientViewController.swift in Sources */,
+				84136C651CB152F600C486CD /* Protocols.swift in Sources */,
 				848B85631CA1942C004DD62C /* InFridgeListViewController.swift in Sources */,
 				845251C71CA13ED300D23E45 /* AppDelegate.swift in Sources */,
 				848B856B1CA28443004DD62C /* Ingredient.swift in Sources */,

@@ -8,10 +8,17 @@
 
 import UIKit
 
+//protocol FromFridgeListProtocol: class {
+//    func sendtoShoppingList(toSave: Ingredient)
+//    func openEditPopOver(toEdit: Ingredient, atIndex: Int)
+//}
+
 class InFridgeListViewDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     var fridgeList = [Ingredient]()
     let cellIdentifier = "FridgeCustomListCell"
+    
+    weak var fromFridgeListProtocol : FromFridgeListProtocol?
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -37,13 +44,22 @@ class InFridgeListViewDelegate: NSObject, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let selectedIngredient = fridgeList[indexPath.row]
+        
         let undo = UITableViewRowAction(style: .Normal, title: "Undo") { action, index in
-            print("more button tapped")
+            print("undo button tapped")
+            
+            self.fridgeList.removeAtIndex(indexPath.row)
+            self.fromFridgeListProtocol?.sendtoShoppingList(selectedIngredient)
+            tableView.reloadData()
         }
         undo.backgroundColor = UIColor.greenColor()
         
         let edit = UITableViewRowAction(style: .Normal, title: "Edit") { action, index in
-            print("favorite button tapped")
+            print("edit button tapped")
+            
+            self.fromFridgeListProtocol?.openEditPopOver(selectedIngredient, atIndex: indexPath.row)
         }
         edit.backgroundColor = UIColor.redColor()
         
@@ -53,6 +69,10 @@ class InFridgeListViewDelegate: NSObject, UITableViewDataSource, UITableViewDele
     
     func addToFridgeList(toAdd: Ingredient) {
         fridgeList.append(toAdd)
+    }
+    
+    func deletefromFridgeList(atIndex: Int){
+        fridgeList.removeAtIndex(atIndex)
     }
 
 }

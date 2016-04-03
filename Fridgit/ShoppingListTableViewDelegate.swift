@@ -8,10 +8,16 @@
 
 import UIKit
 
-class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableViewDelegate {
+//protocol FromShoppingListProtocol: class {
+//    func sendtoFridge(toSave: Ingredient)
+//    func openEditPopOver(toEdit: Ingredient, atIndex: Int)
+//}
 
+class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableViewDelegate {
     var shoppingList = [Ingredient]()
     let cellIdentifier = "ShoppingCustomListCell"
+    weak var fromShoppingListProtocol : FromShoppingListProtocol?
+    
     
     // MARK: - Table view data source
 
@@ -22,6 +28,7 @@ class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableVi
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+
         return shoppingList.count
     }
     
@@ -39,14 +46,35 @@ class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableVi
         return cell!
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let selectedIngredient = shoppingList[indexPath.row]
+        self.shoppingList.removeAtIndex(indexPath.row)
+        self.fromShoppingListProtocol?.sendtoFridge(selectedIngredient)
+        tableView.reloadData()
+    }
+    
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let selectedIngredient = shoppingList[indexPath.row]
+        
         let done = UITableViewRowAction(style: .Normal, title: "Done") { action, index in
-            print("more button tapped")
+            print("done button tapped")
+            
+            
+            self.shoppingList.removeAtIndex(indexPath.row)
+            self.fromShoppingListProtocol?.sendtoFridge(selectedIngredient)
+            tableView.reloadData()
+            
+            
         }
         done.backgroundColor = UIColor.greenColor()
         
         let edit = UITableViewRowAction(style: .Normal, title: "Edit") { action, index in
-            print("favorite button tapped")
+            print("edit button tapped")
+            
+           self.fromShoppingListProtocol?.openEditPopOver(selectedIngredient, atIndex: indexPath.row)
+            
         }
         edit.backgroundColor = UIColor.redColor()
         
@@ -57,7 +85,10 @@ class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableVi
     func addToShoppingList(toAdd: Ingredient) {
         shoppingList.append(toAdd)
     }
- 
+    
+    func deletefromShoppingList(atIndex: Int){
+        shoppingList.removeAtIndex(atIndex)
+    }
 
     /*
     // Override to support conditional editing of the table view.
