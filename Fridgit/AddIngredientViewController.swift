@@ -59,8 +59,7 @@ class AddIngredientViewController: UIViewController, UIPickerViewDataSource, UIP
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func save(sender: UIButton) {
-//        let chosenName = ingredientNameTextField.text!
-//        let chosenAmount = Double(amountTextField.text!)
+
         if (ingredientNameTextField.text! == "" || amountTextField.text! == ""){
             
             ingredientNameTextField.borderStyle = .None
@@ -91,6 +90,9 @@ class AddIngredientViewController: UIViewController, UIPickerViewDataSource, UIP
             self.dismissViewControllerAnimated(true, completion: nil)
         }else{
             //The amount is not a number
+            amountTextField.borderStyle = .RoundedRect
+            amountTextField.layer.borderColor = (UIColor.redColor()).CGColor
+            amountERROR.text = "Amount must be number!"
         }
     }
     

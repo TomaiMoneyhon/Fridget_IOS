@@ -14,8 +14,8 @@ import UIKit
 //}
 
 class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableViewDelegate {
+    
     var shoppingList = [Ingredient]()
-    let cellIdentifier = "ShoppingCustomListCell"
     weak var fromShoppingListProtocol : FromShoppingListProtocol?
     
     
@@ -33,10 +33,10 @@ class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? CustomListTableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(Identifiers.shoppingCellIdentifier) as? CustomListTableViewCell
         
         if (cell == nil) {
-            cell = CustomListTableViewCell(style: .Default, reuseIdentifier: cellIdentifier)
+            cell = CustomListTableViewCell(style: .Default, reuseIdentifier: Identifiers.shoppingCellIdentifier)
         }
         
         let oneIngredient = shoppingList[indexPath.row]
@@ -84,10 +84,23 @@ class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableVi
     
     func addToShoppingList(toAdd: Ingredient) {
         shoppingList.append(toAdd)
+        self.saveIngredients()
     }
     
     func deletefromShoppingList(atIndex: Int){
         shoppingList.removeAtIndex(atIndex)
+        self.saveIngredients()
+    }
+    
+    func saveIngredients() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(shoppingList, toFile: FileDirectories.shoppingDirectory.path!)
+        if !isSuccessfulSave {
+            print("Saving shoppingList Failed!")
+        }
+    }
+    
+    func loadIngredients() -> [Ingredient]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(FileDirectories.shoppingDirectory.path!) as? [Ingredient]
     }
 
     /*

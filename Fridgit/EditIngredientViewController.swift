@@ -104,6 +104,9 @@ class EditIngredientViewController: UIViewController, UIPickerViewDataSource, UI
             }
         }else{
             //The amount is not a number
+            amountTextField.borderStyle = .RoundedRect
+            amountTextField.layer.borderColor = (UIColor.redColor()).CGColor
+            amountERROR.text = "Amount must be number!"
         }
     }
     

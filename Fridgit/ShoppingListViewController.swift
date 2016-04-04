@@ -16,10 +16,13 @@ class ShoppingListViewController: UIViewController, SaveProtocol, FromShoppingLi
     override func viewDidLoad() {
         super.viewDidLoad()
         //FOR TESTING
-        shoppingListDelegate.addToShoppingList(Ingredient(name: "eggs", amount: 12, amountKind: amounts.Unit))
+        //shoppingListDelegate.addToShoppingList(Ingredient(name: "eggs", amount: 12, amountKind: amounts.Unit))
         shoppingListTableView.dataSource = shoppingListDelegate
         shoppingListTableView.delegate = shoppingListDelegate
         shoppingListDelegate.fromShoppingListProtocol = self
+        if let loadedIngredient = shoppingListDelegate.loadIngredients() {
+            shoppingListDelegate.shoppingList = loadedIngredient
+        }
     }
     
     override func viewWillAppear(animated: Bool) {

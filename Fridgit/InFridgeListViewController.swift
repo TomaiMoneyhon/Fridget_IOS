@@ -11,15 +11,17 @@ import UIKit
 class InFridgeListViewController: UIViewController, FromFridgeListProtocol, SaveProtocol {
     
     @IBOutlet weak var inFridgeListTableView: UITableView!
-    let inFridgeListViewDelegate = InFridgeListViewDelegate()
+    let inFridgeListDelegate = InFridgeListViewDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        inFridgeListTableView.dataSource = inFridgeListViewDelegate
-        inFridgeListTableView.delegate = inFridgeListViewDelegate
-        inFridgeListViewDelegate.fromFridgeListProtocol = self
-        // Do any additional setup after loading the view.
+        inFridgeListTableView.dataSource = inFridgeListDelegate
+        inFridgeListTableView.delegate = inFridgeListDelegate
+        inFridgeListDelegate.fromFridgeListProtocol = self
+        if let loadedIngredient = inFridgeListDelegate.loadIngredients() {
+            inFridgeListDelegate.fridgeList = loadedIngredient
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -32,12 +34,12 @@ class InFridgeListViewController: UIViewController, FromFridgeListProtocol, Save
     }
     
     func saveToFridgeList(toSend: Ingredient){
-        inFridgeListViewDelegate.addToFridgeList(toSend)
+        inFridgeListDelegate.addToFridgeList(toSend)
     }
     
     func editIngredientInList (toSave: Ingredient, atIndex: Int){
-        inFridgeListViewDelegate.addToFridgeList(toSave)
-        inFridgeListViewDelegate.deletefromFridgeList(atIndex)
+        inFridgeListDelegate.addToFridgeList(toSave)
+        inFridgeListDelegate.deletefromFridgeList(atIndex)
         
     }
     
@@ -63,8 +65,8 @@ class InFridgeListViewController: UIViewController, FromFridgeListProtocol, Save
     }
     
     func saveEdit(toSave: Ingredient, atIndex: Int) {
-        inFridgeListViewDelegate.addToFridgeList(toSave)
-        inFridgeListViewDelegate.deletefromFridgeList(atIndex)
+        inFridgeListDelegate.addToFridgeList(toSave)
+        inFridgeListDelegate.deletefromFridgeList(atIndex)
     }
 
     

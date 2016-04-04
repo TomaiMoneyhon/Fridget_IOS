@@ -16,7 +16,6 @@ import UIKit
 class InFridgeListViewDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     var fridgeList = [Ingredient]()
-    let cellIdentifier = "FridgeCustomListCell"
     
     weak var fromFridgeListProtocol : FromFridgeListProtocol?
     
@@ -30,10 +29,10 @@ class InFridgeListViewDelegate: NSObject, UITableViewDataSource, UITableViewDele
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? CustomListTableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(Identifiers.fridgeCellIdentifier) as? CustomListTableViewCell
         
         if (cell == nil){
-            cell = CustomListTableViewCell(style: .Default, reuseIdentifier: cellIdentifier)
+            cell = CustomListTableViewCell(style: .Default, reuseIdentifier: Identifiers.fridgeCellIdentifier)
         }
         
         let oneIngredient = fridgeList[indexPath.row]
@@ -69,10 +68,23 @@ class InFridgeListViewDelegate: NSObject, UITableViewDataSource, UITableViewDele
     
     func addToFridgeList(toAdd: Ingredient) {
         fridgeList.append(toAdd)
+        self.saveIngredients()
     }
     
     func deletefromFridgeList(atIndex: Int){
         fridgeList.removeAtIndex(atIndex)
+        self.saveIngredients()
+    }
+    
+    func saveIngredients() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(fridgeList, toFile: FileDirectories.fridgeDirectory.path!)
+        if !isSuccessfulSave {
+            print("Saving fridgeList Failed!")
+        }
+    }
+    
+    func loadIngredients() -> [Ingredient]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(FileDirectories.fridgeDirectory.path!) as? [Ingredient]
     }
 
 }
