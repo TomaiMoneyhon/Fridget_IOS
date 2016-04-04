@@ -37,6 +37,7 @@ class ShoppingListViewController: UIViewController, SaveProtocol, FromShoppingLi
     @IBAction func addPopOver(sender: UIBarButtonItem) {
         let VC = storyboard!.instantiateViewControllerWithIdentifier(IDs.addIngredientStoryboardID) as! AddIngredientViewController
         VC.saveDelegate = self
+        //to be removed
     
         presentViewController(VC, animated: true, completion: nil)
     }
