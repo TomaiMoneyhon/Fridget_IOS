@@ -68,6 +68,21 @@ class InFridgeListViewController: UIViewController, FromFridgeListProtocol, Save
         inFridgeListDelegate.addToFridgeList(toSave)
         inFridgeListDelegate.deletefromFridgeList(atIndex)
     }
+    
+    func deleteEdit(atIndex: Int) {
+        inFridgeListDelegate.deletefromFridgeList(atIndex)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        switch segue.identifier! {
+        case Identifiers.toRecipeListFromFridgeSegue:
+            let recipeListViewController = segue.destinationViewController as! RecipeListViewController
+            recipeListViewController.inFridgeList = inFridgeListDelegate.fridgeList
+        default:
+            return
+        }
+    }
 
     
     

@@ -49,7 +49,7 @@ class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let selectedIngredient = shoppingList[indexPath.row]
-        self.shoppingList.removeAtIndex(indexPath.row)
+        self.deletefromShoppingList(indexPath.row)
         self.fromShoppingListProtocol?.sendtoFridge(selectedIngredient)
         tableView.reloadData()
     }
@@ -62,7 +62,7 @@ class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableVi
             print("done button tapped")
             
             
-            self.shoppingList.removeAtIndex(indexPath.row)
+            self.deletefromShoppingList(indexPath.row)
             self.fromShoppingListProtocol?.sendtoFridge(selectedIngredient)
             tableView.reloadData()
             

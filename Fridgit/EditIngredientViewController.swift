@@ -110,6 +110,13 @@ class EditIngredientViewController: UIViewController, UIPickerViewDataSource, UI
         }
     }
     
+    @IBAction func deleteIngredient(sender: UIButton) {
+        saveDelegate?.deleteEdit(itemIndex)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    
+    
     @IBAction func cancelEdit(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

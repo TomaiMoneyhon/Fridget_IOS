@@ -49,7 +49,7 @@ class InFridgeListViewDelegate: NSObject, UITableViewDataSource, UITableViewDele
         let undo = UITableViewRowAction(style: .Normal, title: "Undo") { action, index in
             print("undo button tapped")
             
-            self.fridgeList.removeAtIndex(indexPath.row)
+            self.deletefromFridgeList(indexPath.row)
             self.fromFridgeListProtocol?.sendtoShoppingList(selectedIngredient)
             tableView.reloadData()
         }

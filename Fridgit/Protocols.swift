@@ -18,6 +18,9 @@ struct IDs {
 struct Identifiers {
     static let shoppingCellIdentifier = "ShoppingCustomListCell"
     static let fridgeCellIdentifier = "FridgeCustomListCell"
+    static let toRecipeListFromFridgeSegue = "toRecipeListFromFridgeSegue"
+    static let toRecipeListFromShoppingSegue = "toRecipeListFromShoppingSegue"
+    static let toAddIngredientSegue = "toAddIngredientSegue"
 }
 
 struct FileDirectories {
@@ -48,4 +51,5 @@ protocol FromShoppingListProtocol: class {
 protocol SaveProtocol: class {
     func saveToShoppingList(toSave: Ingredient)
     func saveEdit(toSave: Ingredient, atIndex: Int)
+    func deleteEdit(atIndex: Int)
 }

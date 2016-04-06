@@ -9,10 +9,22 @@
 import UIKit
 
 class RecipeListViewController: UIViewController {
-
+    
+    var inFridgeList: [Ingredient]!
+    var fridgeList : String!
+    var findByIngredientURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?ingredients="
+    let endByIngredientURL = "&limitLicense=false&number=5&ranking=1"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fridgeList = String(inFridgeList[0].name)
+        for i in 2...(inFridgeList.count){
+            fridgeList = fridgeList + "%2C" + String(inFridgeList[i - 1].name)
+        }
+        findByIngredientURL = findByIngredientURL + fridgeList + endByIngredientURL
+        print(findByIngredientURL)
+        
+        
         // Do any additional setup after loading the view.
     }
 
