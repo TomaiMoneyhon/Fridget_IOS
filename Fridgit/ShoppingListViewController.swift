@@ -14,13 +14,13 @@ class ShoppingListViewController: UIViewController, SaveProtocol, FromShoppingLi
     let shoppingListDelegate = ShoppingListTableViewDelegate()
     var inFridgeVC : InFridgeListViewController!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //FOR TESTING
         //shoppingListDelegate.addToShoppingList(Ingredient(name: "eggs", amount: 12, amountKind: amounts.Unit))
         
-        let barViewControllers = self.tabBarController?.viewControllers
-        inFridgeVC = barViewControllers![1].childViewControllers[0] as! InFridgeListViewController
+        inFridgeVC = storyboard!.instantiateViewControllerWithIdentifier(IDs.InFridgeListStoyboardID) as! InFridgeListViewController
         inFridgeVC.loadView()
         inFridgeVC.viewDidLoad()
         
@@ -75,8 +75,6 @@ class ShoppingListViewController: UIViewController, SaveProtocol, FromShoppingLi
         case Identifiers.toRecipeListFromShoppingSegue:
             let recipeListViewController = segue.destinationViewController as! RecipeListViewController
             
-            let barViewControllers = self.tabBarController?.viewControllers
-            let inFridgeVC = barViewControllers![1].childViewControllers[0] as! InFridgeListViewController
            recipeListViewController.inFridgeList = inFridgeVC.inFridgeListDelegate.fridgeList
             
         case Identifiers.toAddIngredientSegue:

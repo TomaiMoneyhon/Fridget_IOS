@@ -8,51 +8,22 @@
 
 import UIKit
 
-class AddIngredientViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class AddIngredientViewController: UIViewController {
     
     @IBOutlet weak var ingredientNameTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var amountERROR: UILabel!
     @IBOutlet weak var ingredientNameERROR: UILabel!
     @IBOutlet weak var amountKindPicker: UIPickerView!
-    var chosenAmountKind = amounts.Grams
+    let amountKindPickerViewDelegate = AmountKindPickerViewDelegate()
     weak var saveDelegate : SaveProtocol?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        amountKindPicker.dataSource = self
-        amountKindPicker.delegate = self
-    }
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 3 //the number of amount kinds in enum
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        var amountKindArray = [String]()
-        amountKindArray.append(String(amounts.Grams))
-        amountKindArray.append(String(amounts.Liters))
-        amountKindArray.append(String(amounts.Unit))
-    
-        return amountKindArray[row]
-    }
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch row {
-        case 0:
-            chosenAmountKind = amounts.Grams
-        case 1:
-            chosenAmountKind = amounts.Liters
-        case 2:
-            chosenAmountKind = amounts.Unit
-        default:
-            return
-        }
+        amountKindPicker.dataSource = amountKindPickerViewDelegate
+        amountKindPicker.delegate = amountKindPickerViewDelegate
     }
 
     @IBAction func cancel(sender: UIButton) {
@@ -84,7 +55,7 @@ class AddIngredientViewController: UIViewController, UIPickerViewDataSource, UIP
             ingredientNameERROR.text = ""
             amountERROR.text = ""
             
-             let savedIngredient = Ingredient(name: ingredientNameTextField.text!, amount: amountNumber, amountKind: chosenAmountKind)
+             let savedIngredient = Ingredient(name: ingredientNameTextField.text!, amount: amountNumber, amountKind: amountKindPickerViewDelegate.chosenAmountKind)
             
             saveDelegate?.saveToShoppingList(savedIngredient)
             self.dismissViewControllerAnimated(true, completion: nil)

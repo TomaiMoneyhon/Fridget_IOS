@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZEp-2Y-Atl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZEp-2Y-Atl">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,7 +9,7 @@
         <!--In Your Fridge-->
         <scene sceneID="8On-lh-YDq">
             <objects>
-                <viewController id="3tT-qM-cW2" customClass="InFridgeListViewController" customModule="Fridgit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InFridgeListStoyboardID" id="3tT-qM-cW2" customClass="InFridgeListViewController" customModule="Fridgit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yti-tw-AKJ"/>
                         <viewControllerLayoutGuide type="bottom" id="KRu-Ee-xEV"/>
@@ -109,40 +109,67 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgc-Pr-GPm">
                                 <rect key="frame" x="435" y="514" width="69" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="69" id="Ms2-ey-0N8"/>
+                                    <constraint firstAttribute="width" constant="69" id="kqm-RD-XL4"/>
                                 </constraints>
                                 <state key="normal" title="next"/>
+                                <connections>
+                                    <action selector="nextRecipe:" destination="Qfa-GY-gi0" eventType="touchUpInside" id="lIM-t6-iL5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djY-OS-SR8">
                                 <rect key="frame" x="93" y="514" width="66" height="30"/>
                                 <state key="normal" title="Make this"/>
+                                <connections>
+                                    <segue destination="Qms-gC-ADq" kind="show" identifier="toChosenRecipeFromRecipeListSegue" id="5Gn-Cs-eOh"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHb-8h-vXx">
-                                <rect key="frame" x="242" y="120" width="117" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gDM-N0-fPy">
+                                <rect key="frame" x="182" y="184" width="240" height="212"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="DMt-QE-1Yc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount of items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dij-v4-fV2">
+                                <rect key="frame" x="118" y="404" width="126" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gDM-N0-fPy">
-                                <rect key="frame" x="180" y="154" width="240" height="212"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount of items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dij-v4-fV2">
-                                <rect key="frame" x="116" y="374" width="126" height="21"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="QIL-2T-Pdk">
+                                <rect key="frame" x="292" y="280" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHb-8h-vXx">
+                                <rect key="frame" x="244" y="127" width="117" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="djY-OS-SR8" firstAttribute="leading" secondItem="GCi-eT-Llz" secondAttribute="leadingMargin" constant="73" id="CO1-f7-A7s"/>
-                            <constraint firstItem="djY-OS-SR8" firstAttribute="baseline" secondItem="Jgc-Pr-GPm" secondAttribute="baseline" id="L8F-nG-bSc"/>
-                            <constraint firstItem="f9H-Ua-vfe" firstAttribute="top" secondItem="djY-OS-SR8" secondAttribute="bottom" constant="56" id="SOr-pP-i8p"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Jgc-Pr-GPm" secondAttribute="trailing" constant="76" id="nBT-xl-CFQ"/>
+                            <constraint firstItem="djY-OS-SR8" firstAttribute="leading" secondItem="GCi-eT-Llz" secondAttribute="leadingMargin" constant="73" id="0WW-ex-khQ"/>
+                            <constraint firstItem="gDM-N0-fPy" firstAttribute="centerX" secondItem="QIL-2T-Pdk" secondAttribute="centerX" id="6mg-d8-D0K"/>
+                            <constraint firstItem="gDM-N0-fPy" firstAttribute="leading" secondItem="GCi-eT-Llz" secondAttribute="leading" constant="182" id="9NX-Ak-CpQ"/>
+                            <constraint firstItem="gDM-N0-fPy" firstAttribute="top" secondItem="VHb-8h-vXx" secondAttribute="bottom" constant="36" id="ADZ-RD-bAQ"/>
+                            <constraint firstItem="djY-OS-SR8" firstAttribute="baseline" secondItem="Jgc-Pr-GPm" secondAttribute="baseline" id="BAe-tp-46m"/>
+                            <constraint firstItem="gDM-N0-fPy" firstAttribute="centerY" secondItem="QIL-2T-Pdk" secondAttribute="centerY" id="Dzo-Ib-QWO"/>
+                            <constraint firstItem="djY-OS-SR8" firstAttribute="top" secondItem="Dij-v4-fV2" secondAttribute="bottom" constant="89" id="X3c-pJ-Ib7"/>
+                            <constraint firstItem="f9H-Ua-vfe" firstAttribute="top" secondItem="djY-OS-SR8" secondAttribute="bottom" constant="56" id="cH2-u1-geB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jgc-Pr-GPm" secondAttribute="trailing" constant="76" id="goh-7f-MZC"/>
+                            <constraint firstItem="VHb-8h-vXx" firstAttribute="top" secondItem="g1A-qI-6Zb" secondAttribute="bottom" constant="63" id="r4z-KB-2aj"/>
+                            <constraint firstItem="VHb-8h-vXx" firstAttribute="centerX" secondItem="QIL-2T-Pdk" secondAttribute="centerX" id="r84-bN-qdP"/>
+                            <constraint firstItem="Dij-v4-fV2" firstAttribute="top" secondItem="gDM-N0-fPy" secondAttribute="bottom" constant="8" symbolic="YES" id="vuT-t5-Ti0"/>
+                            <constraint firstItem="Dij-v4-fV2" firstAttribute="leading" secondItem="GCi-eT-Llz" secondAttribute="leadingMargin" constant="98" id="y9I-xJ-NXa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Choose A Recipe" id="TSp-Pl-V9c"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="QIL-2T-Pdk" id="wnP-4O-LlS"/>
+                        <outlet property="recipeImageView" destination="gDM-N0-fPy" id="uMR-nA-zg5"/>
+                        <outlet property="recipeMissingItems" destination="Dij-v4-fV2" id="XVu-L5-bMU"/>
+                        <outlet property="recipeName" destination="VHb-8h-vXx" id="VZu-Zt-OYj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKH-0y-Son" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -151,7 +178,7 @@
         <!--Ingredients-->
         <scene sceneID="vrj-H5-iBU">
             <objects>
-                <viewController storyboardIdentifier="shopping list" id="q8O-ef-wlg" customClass="ChosenRecipeIngredientsViewController" customModule="Fridgit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChosenIngredientsID" id="q8O-ef-wlg" customClass="ChosenRecipeIngredientsViewController" customModule="Fridgit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ivf-QW-QM1"/>
                         <viewControllerLayoutGuide type="bottom" id="5G0-t3-zGp"/>
@@ -160,9 +187,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5km-Q8-xpi">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="0lU-gD-E57">
+                                <rect key="frame" x="0.0" y="290" width="600" height="20"/>
+                            </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="32" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5km-Q8-xpi">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChosenIngredientsCustomListCell" id="YRt-Df-PCf" customClass="CustomListTableViewCell" customModule="Fridgit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="32" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YRt-Df-PCf" id="hVx-R0-5oj">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IngredientsName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTc-gz-Af8">
+                                                    <rect key="frame" x="8" y="11" width="375" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount + AmountKind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFJ-8b-Meq">
+                                                    <rect key="frame" x="410" y="11" width="182" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="182" id="k5H-O6-fX9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tTc-gz-Af8" firstAttribute="centerY" secondItem="hVx-R0-5oj" secondAttribute="centerY" id="4nv-j6-ppC"/>
+                                                <constraint firstItem="tTc-gz-Af8" firstAttribute="baseline" secondItem="hFJ-8b-Meq" secondAttribute="baseline" id="INa-vB-SXa"/>
+                                                <constraint firstItem="hFJ-8b-Meq" firstAttribute="trailing" secondItem="hVx-R0-5oj" secondAttribute="trailingMargin" id="bo9-XN-un8"/>
+                                                <constraint firstItem="tTc-gz-Af8" firstAttribute="leading" secondItem="hVx-R0-5oj" secondAttribute="leadingMargin" id="pvV-Y4-fun"/>
+                                                <constraint firstItem="hFJ-8b-Meq" firstAttribute="leading" secondItem="tTc-gz-Af8" secondAttribute="trailing" constant="27" id="xRA-wf-Htj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="hFJ-8b-Meq" id="6wc-Wz-Tgh"/>
+                                            <outlet property="ingredientLabel" destination="tTc-gz-Af8" id="xsj-td-mcH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -174,6 +242,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Ingredients" id="BeK-lD-Lcc"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="0lU-gD-E57" id="PUH-2l-gKr"/>
+                        <outlet property="ingredientsTableView" destination="5km-Q8-xpi" id="SU0-WZ-dS1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vos-iO-Ezc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -551,10 +623,10 @@
             </objects>
             <point key="canvasLocation" x="440" y="-261"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Chosen Recipe Tab Bar Controller-->
         <scene sceneID="UOr-Rv-gng">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Qms-gC-ADq" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Qms-gC-ADq" customClass="ChosenRecipeTabBarController" customModule="Fridgit" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5J3-Li-YHT">
                         <autoresizingMask key="autoresizingMask"/>
@@ -572,7 +644,7 @@
         <!--Direction-->
         <scene sceneID="ScC-fG-GMt">
             <objects>
-                <viewController id="GfT-Y3-b56" customClass="ChoosenRecipeDirectionsViewController" customModule="Fridgit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChosenRecipeDirectionsID" id="GfT-Y3-b56" customClass="ChoosenRecipeDirectionsViewController" customModule="Fridgit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q74-sk-IKA"/>
                         <viewControllerLayoutGuide type="bottom" id="PnE-GC-qFK"/>

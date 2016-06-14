@@ -12,15 +12,20 @@ import UIKit
 struct IDs {
     static let addIngredientStoryboardID = "addIngredientStoryboardID"
     static let editIngredientStoryboardID = "editIngredientStoryboardID"
+    static let InFridgeListStoyboardID = "InFridgeListStoyboardID"
+    static let ChosenRecipeDirectionsID = "ChosenRecipeDirectionsID"
+    static let ChosenIngredientsID = "ChosenIngredientsID"
     //let recipeListStoryboardID = "recipeListStoryboardID"
 }
 
 struct Identifiers {
     static let shoppingCellIdentifier = "ShoppingCustomListCell"
     static let fridgeCellIdentifier = "FridgeCustomListCell"
+    static let ChosenIngredientsCustomListCell = "ChosenIngredientsCustomListCell"
     static let toRecipeListFromFridgeSegue = "toRecipeListFromFridgeSegue"
     static let toRecipeListFromShoppingSegue = "toRecipeListFromShoppingSegue"
     static let toAddIngredientSegue = "toAddIngredientSegue"
+    static let toChosenRecipeFromRecipeListSegue = "toChosenRecipeFromRecipeListSegue"
 }
 
 struct FileDirectories {
@@ -29,6 +34,10 @@ struct FileDirectories {
     static let documentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
     static let shoppingDirectory = documentsDirectory.URLByAppendingPathComponent(shoppingIngredientsFILENAME)
     static let fridgeDirectory = documentsDirectory.URLByAppendingPathComponent(fridgeIngredientsFILENAME)
+}
+
+struct API {
+    static let spoonacularAPIKEYTEST = "u2ZGgoREd8msh4ysiDyz5yJn2Gmlp1Wos17jsnAYUQMHvhAX0A"
 }
 
 struct ProtertyKey {
@@ -52,4 +61,8 @@ protocol SaveProtocol: class {
     func saveToShoppingList(toSave: Ingredient)
     func saveEdit(toSave: Ingredient, atIndex: Int)
     func deleteEdit(atIndex: Int)
+}
+
+protocol ChosenRecipeProtocol: class {
+    func getChosenRecipe() -> AnyObject
 }

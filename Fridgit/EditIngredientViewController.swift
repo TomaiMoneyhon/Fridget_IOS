@@ -8,12 +8,13 @@
 
 import UIKit
 
-class EditIngredientViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class EditIngredientViewController: UIViewController {
 
-    var chosenAmountKind = amounts.Grams
+
     var ingredientToEdit : Ingredient!
     var itemIndex : Int!
-    weak var saveDelegate : SaveProtocol?
+    weak var saveDelegate : SaveProtocol!
+    let amountKindPickerViewDelegate = AmountKindPickerViewDelegate()
     @IBOutlet weak var ingredientNameTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var amountKindPicker: UIPickerView!
@@ -26,8 +27,8 @@ class EditIngredientViewController: UIViewController, UIPickerViewDataSource, UI
         ingredientNameTextField.text = ingredientToEdit.name
         amountTextField.text = String(ingredientToEdit.amount)
 
-        amountKindPicker.dataSource = self
-        amountKindPicker.delegate = self
+        amountKindPicker.dataSource = amountKindPickerViewDelegate
+        amountKindPicker.delegate = amountKindPickerViewDelegate
         
         switch ingredientToEdit.amountKind {
         case .Grams:
@@ -36,35 +37,6 @@ class EditIngredientViewController: UIViewController, UIPickerViewDataSource, UI
             amountKindPicker.selectRow(1, inComponent: 0, animated: false)
         case .Unit:
             amountKindPicker.selectRow(2, inComponent: 0, animated: false)
-        }
-    }
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 3 //the number of amount kinds in enum
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        var amountKindArray = [String]()
-        amountKindArray.append(String(amounts.Grams))
-        amountKindArray.append(String(amounts.Liters))
-        amountKindArray.append(String(amounts.Unit))
-        
-        return amountKindArray[row]
-    }
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch row {
-        case 0:
-            chosenAmountKind = amounts.Grams
-        case 1:
-            chosenAmountKind = amounts.Liters
-        case 2:
-            chosenAmountKind = amounts.Unit
-        default:
-            return
         }
     }
     
@@ -93,7 +65,7 @@ class EditIngredientViewController: UIViewController, UIPickerViewDataSource, UI
             ingredientNameERROR.text = ""
             amountERROR.text = ""
             
-            let savedIngredient = Ingredient(name: ingredientNameTextField.text!, amount: amountNumber, amountKind: chosenAmountKind)
+            let savedIngredient = Ingredient(name: ingredientNameTextField.text!, amount: amountNumber, amountKind: amountKindPickerViewDelegate.chosenAmountKind)
             
             if(ingredientToEdit == savedIngredient){
                 self.dismissViewControllerAnimated(true, completion: nil)
