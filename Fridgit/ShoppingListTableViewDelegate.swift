@@ -8,16 +8,10 @@
 
 import UIKit
 
-//protocol FromShoppingListProtocol: class {
-//    func sendtoFridge(toSave: Ingredient)
-//    func openEditPopOver(toEdit: Ingredient, atIndex: Int)
-//}
-
 class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableViewDelegate {
     
     var shoppingList = [Ingredient]()
     weak var fromShoppingListProtocol : FromShoppingListProtocol?
-    
     
     // MARK: - Table view data source
 
@@ -99,8 +93,13 @@ class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableVi
         }
     }
     
-    func loadIngredients() -> [Ingredient]? {
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(FileDirectories.shoppingDirectory.path!) as? [Ingredient]
+    func loadIngredients() {
+        if let loadedIngredients = NSKeyedUnarchiver.unarchiveObjectWithFile(FileDirectories.shoppingDirectory.path!) as? [Ingredient] {
+            shoppingList = loadedIngredients
+        }
+        else {
+            print ("loading shoppingList failed")
+        }
     }
 
     /*

@@ -57,10 +57,13 @@ protocol FromShoppingListProtocol: class {
     func openEditPopOver(toEdit: Ingredient, atIndex: Int)
 }
 
-protocol SaveProtocol: class {
-    func saveToShoppingList(toSave: Ingredient)
+protocol EditProtocol: class {
     func saveEdit(toSave: Ingredient, atIndex: Int)
     func deleteEdit(atIndex: Int)
+}
+
+protocol SaveNewIngredientProtocol: class {
+    func saveToShoppingList(toSave: Ingredient)
 }
 
 protocol ChosenRecipeProtocol: class {

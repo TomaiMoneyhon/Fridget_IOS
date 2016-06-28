@@ -16,7 +16,7 @@ class AddIngredientViewController: UIViewController {
     @IBOutlet weak var ingredientNameERROR: UILabel!
     @IBOutlet weak var amountKindPicker: UIPickerView!
     let amountKindPickerViewDelegate = AmountKindPickerViewDelegate()
-    weak var saveDelegate : SaveProtocol?
+    weak var saveDelegate : SaveNewIngredientProtocol?
     
     
     override func viewDidLoad() {

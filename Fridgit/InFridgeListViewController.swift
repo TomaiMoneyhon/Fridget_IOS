@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InFridgeListViewController: UIViewController, FromFridgeListProtocol, SaveProtocol {
+class InFridgeListViewController: UIViewController, FromFridgeListProtocol, EditProtocol {
     
     @IBOutlet weak var inFridgeListTableView: UITableView!
     let inFridgeListDelegate = InFridgeListViewDelegate()
@@ -19,9 +19,7 @@ class InFridgeListViewController: UIViewController, FromFridgeListProtocol, Save
         inFridgeListTableView.dataSource = inFridgeListDelegate
         inFridgeListTableView.delegate = inFridgeListDelegate
         inFridgeListDelegate.fromFridgeListProtocol = self
-        if let loadedIngredient = inFridgeListDelegate.loadIngredients() {
-            inFridgeListDelegate.fridgeList = loadedIngredient
-        }
+        inFridgeListDelegate.loadIngredients()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -55,13 +53,9 @@ class InFridgeListViewController: UIViewController, FromFridgeListProtocol, Save
         
         VC.ingredientToEdit = toEdit
         VC.itemIndex = atIndex
-        VC.saveDelegate = self
+        VC.editDelegate = self
         
         presentViewController(VC, animated: true, completion: nil)
-    }
-    
-    func saveToShoppingList(toSave: Ingredient) {
-        return //unessacery. only here because of saveProtocol
     }
     
     func saveEdit(toSave: Ingredient, atIndex: Int) {
@@ -81,6 +75,20 @@ class InFridgeListViewController: UIViewController, FromFridgeListProtocol, Save
             recipeListViewController.inFridgeList = inFridgeListDelegate.fridgeList
         default:
             return
+        }
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        switch identifier {
+        case Identifiers.toRecipeListFromFridgeSegue:
+            if inFridgeListDelegate.fridgeList.count == 0 {
+                return false
+            }
+            else {
+                return true
+            }
+        default:
+            return true
         }
     }
 

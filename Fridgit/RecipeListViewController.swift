@@ -18,7 +18,7 @@ class RecipeListViewController: UIViewController {
     var inFridgeList: [Ingredient]!
     var results : NSArray!
     var currentRecipe : Int!
-    let spoonacularAPI = SpoonacularAPI()
+//    let spoonacularAPI = SpoonacularAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class RecipeListViewController: UIViewController {
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
 
-        spoonacularAPI.getRecipesByIngredients(inFridgeList) {result in dispatch_async(dispatch_get_main_queue()) {
+        SpoonacularAPI.getRecipesByIngredients(inFridgeList) {result in dispatch_async(dispatch_get_main_queue()) {
                 self.results = result
                 self.setCurrentRecipe(0)
             }
@@ -52,7 +52,7 @@ class RecipeListViewController: UIViewController {
     }
 
     @IBAction func nextRecipe(sender: UIButton) {
-        if spoonacularAPI.numberOfRecipes-1 == currentRecipe {
+        if SpoonacularAPI.numberOfRecipes-1 == currentRecipe {
             setCurrentRecipe(0)
         }else{
         setCurrentRecipe(currentRecipe + 1)

@@ -13,7 +13,7 @@ class EditIngredientViewController: UIViewController {
 
     var ingredientToEdit : Ingredient!
     var itemIndex : Int!
-    weak var saveDelegate : SaveProtocol!
+    weak var editDelegate : EditProtocol!
     let amountKindPickerViewDelegate = AmountKindPickerViewDelegate()
     @IBOutlet weak var ingredientNameTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
@@ -71,7 +71,7 @@ class EditIngredientViewController: UIViewController {
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
             else{
-                saveDelegate?.saveEdit(savedIngredient, atIndex: itemIndex)
+                editDelegate?.saveEdit(savedIngredient, atIndex: itemIndex)
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }else{
@@ -83,7 +83,7 @@ class EditIngredientViewController: UIViewController {
     }
     
     @IBAction func deleteIngredient(sender: UIButton) {
-        saveDelegate?.deleteEdit(itemIndex)
+        editDelegate?.deleteEdit(itemIndex)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 

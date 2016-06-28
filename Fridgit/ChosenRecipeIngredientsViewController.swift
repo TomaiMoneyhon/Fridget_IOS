@@ -23,15 +23,12 @@ class ChosenRecipeIngredientsViewController: UIViewController,  UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         ingredientsTableView.hidden = true
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
         
         ingredientsTableView.delegate = self
         ingredientsTableView.dataSource = self
-        
         
         tabBarControllerVC = self.tabBarController as! ChosenRecipeTabBarController
         
@@ -68,29 +65,41 @@ class ChosenRecipeIngredientsViewController: UIViewController,  UITableViewDataS
             cell = CustomListTableViewCell(style: .Default, reuseIdentifier: Identifiers.ChosenIngredientsCustomListCell)
         }
         let oneIngreditent = ingredients[indexPath.row] as! NSObject
-        cell!.ingredientLabel.text = oneIngreditent.valueForKey("name") as! String
-        var amount = String(oneIngreditent.valueForKey("amount"))
+        let amount = oneIngreditent.valueForKey("amount")
+        let name = oneIngreditent.valueForKey("name") as! String
+        
+        
+        cell!.ingredientLabel.text = name
+        cell!.amountLabel.text = String(amount!) + " " + String(oneIngreditent.valueForKey("unit")!)
+        
+    
+        
+//        let converter = ConverterAPI()
+//        
+//         var numberer = converter.convert(amount, fromUnit: "teaspoonUK", toUnit: "liter", converter: Converters.CookingUnits)
+//        
+//        print(numberer)
         
 //        switch(oneIngreditent.valueForKey("unitShort") as! String) {
 //            
 //        //teaspoon
 //        case "t":
-//            resultConverted = Double.parseDouble(converters.cookingUnitConverter(startingAmount, "teaspoonUK", "liter", Converters.ConverterKind.CookingUnits));
+//            cell!.amountLabel.text = converter.convert(amount, fromUnit: "teaspoonUK", toUnit: "liter", converter: Converters.CookingUnits) + " " + String(oneIngreditent.valueForKey("unit"))
 //            
 //            break;
 //        //tablespoon
 //        case "T":
-//            resultConverted = Double.parseDouble(converters.cookingUnitConverter(startingAmount, "tablespoonUK", "liter", Converters.ConverterKind.CookingUnits));
+//            cell!.amountLabel.text = Double.parseDouble(converters.cookingUnitConverter(startingAmount, "tablespoonUK", "liter", Converters.ConverterKind.CookingUnits));
 //            
 //            break;
 //        //cups
 //        case "c":
-//            resultConverted = Double.parseDouble(converters.cookingUnitConverter(startingAmount, "cupUS", "liter", Converters.ConverterKind.CookingUnits));
+//            cell!.amountLabel.text = Double.parseDouble(converters.cookingUnitConverter(startingAmount, "cupUS", "liter", Converters.ConverterKind.CookingUnits));
 //            
 //            break;
 //        //pound
 //        case "lb":
-//            resultConverted = Double.parseDouble(converters.cookingUnitConverter(startingAmount, "PoundsTroy", "Grams", Converters.ConverterKind.WeightUnits));
+//            cell!.amountLabel.text = Double.parseDouble(converters.cookingUnitConverter(startingAmount, "PoundsTroy", "Grams", Converters.ConverterKind.WeightUnits));
 //            
 //            break;
 //        //servings
@@ -99,7 +108,7 @@ class ChosenRecipeIngredientsViewController: UIViewController,  UITableViewDataS
 //            break;
 //        //ounces
 //        case "oz":
-//            resultConverted = Double.parseDouble(converters.cookingUnitConverter(startingAmount, "OuncesTroyApoth", "Grams", Converters.ConverterKind.WeightUnits));
+//            cell!.amountLabel.text = Double.parseDouble(converters.cookingUnitConverter(startingAmount, "OuncesTroyApoth", "Grams", Converters.ConverterKind.WeightUnits));
 //            
 //            break;
 //        //bunch
@@ -108,7 +117,7 @@ class ChosenRecipeIngredientsViewController: UIViewController,  UITableViewDataS
 //            break;
 //        //dash
 //        case "dash":
-//            resultConverted = Double.parseDouble(converters.cookingUnitConverter(startingAmount, "dash", "liter", Converters.ConverterKind.CookingUnits));
+//            cell!.amountLabel.text = Double.parseDouble(converters.cookingUnitConverter(startingAmount, "dash", "liter", Converters.ConverterKind.CookingUnits));
 //            
 //            break;
 //        //slices
@@ -123,8 +132,8 @@ class ChosenRecipeIngredientsViewController: UIViewController,  UITableViewDataS
 //        case "":
 //            
 //            break;
-//        }
-//        
+//       }
+        
         return cell!
     }
     

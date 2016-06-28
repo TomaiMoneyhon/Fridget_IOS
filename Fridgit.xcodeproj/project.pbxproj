@@ -14,7 +14,8 @@
 		84136C5C1CAD7DD400C486CD /* ChosenRecipeIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84136C581CAD7DD400C486CD /* ChosenRecipeIngredientsViewController.swift */; };
 		84136C611CB12C8C00C486CD /* EditIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84136C601CB12C8C00C486CD /* EditIngredientViewController.swift */; };
 		84136C651CB152F600C486CD /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84136C641CB152F600C486CD /* Protocols.swift */; };
-		8419CE5A1CFC51C800471B09 /* ChosenRecipeIngredientListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419CE591CFC51C800471B09 /* ChosenRecipeIngredientListViewDelegate.swift */; };
+		8419CE5A1CFC51C800471B09 /* ChosenRecipeIngredientsListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419CE591CFC51C800471B09 /* ChosenRecipeIngredientsListViewDelegate.swift */; };
+		8421EC101D16CDC20056BFEE /* ConverterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421EC0F1D16CDC20056BFEE /* ConverterAPI.swift */; };
 		844CA7871CB657C9004A9E31 /* AmountKindPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CA7861CB657C9004A9E31 /* AmountKindPickerViewDelegate.swift */; };
 		845251C71CA13ED300D23E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845251C61CA13ED300D23E45 /* AppDelegate.swift */; };
 		845251CC1CA13ED300D23E45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845251CA1CA13ED300D23E45 /* Main.storyboard */; };
@@ -57,7 +58,8 @@
 		84136C581CAD7DD400C486CD /* ChosenRecipeIngredientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChosenRecipeIngredientsViewController.swift; sourceTree = "<group>"; };
 		84136C601CB12C8C00C486CD /* EditIngredientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditIngredientViewController.swift; sourceTree = "<group>"; };
 		84136C641CB152F600C486CD /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		8419CE591CFC51C800471B09 /* ChosenRecipeIngredientListViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChosenRecipeIngredientListViewDelegate.swift; sourceTree = "<group>"; };
+		8419CE591CFC51C800471B09 /* ChosenRecipeIngredientsListViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChosenRecipeIngredientsListViewDelegate.swift; sourceTree = "<group>"; };
+		8421EC0F1D16CDC20056BFEE /* ConverterAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterAPI.swift; sourceTree = "<group>"; };
 		844CA7861CB657C9004A9E31 /* AmountKindPickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountKindPickerViewDelegate.swift; sourceTree = "<group>"; };
 		845251C31CA13ED300D23E45 /* Fridgit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fridgit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845251C61CA13ED300D23E45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,9 +153,10 @@
 				844CA7861CB657C9004A9E31 /* AmountKindPickerViewDelegate.swift */,
 				84136C4B1CAD012800C486CD /* InFridgeListViewDelegate.swift */,
 				846E2C521CFD88B70055E46A /* ChosenRecipeTabBarController.swift */,
-				8419CE591CFC51C800471B09 /* ChosenRecipeIngredientListViewDelegate.swift */,
+				8419CE591CFC51C800471B09 /* ChosenRecipeIngredientsListViewDelegate.swift */,
 				84136C641CB152F600C486CD /* Protocols.swift */,
 				8475E1391D05681E001543A1 /* SpoonacularAPI.swift */,
+				8421EC0F1D16CDC20056BFEE /* ConverterAPI.swift */,
 				848B856C1CA29E76004DD62C /* CustomListTableViewCell.swift */,
 				845251D01CA13ED300D23E45 /* Assets.xcassets */,
 				845251D21CA13ED300D23E45 /* LaunchScreen.storyboard */,
@@ -324,9 +327,10 @@
 				848B856F1CA2A655004DD62C /* ShoppingListTableViewDelegate.swift in Sources */,
 				848B85711CA83B4F004DD62C /* AddIngredientViewController.swift in Sources */,
 				84136C611CB12C8C00C486CD /* EditIngredientViewController.swift in Sources */,
-				8419CE5A1CFC51C800471B09 /* ChosenRecipeIngredientListViewDelegate.swift in Sources */,
+				8419CE5A1CFC51C800471B09 /* ChosenRecipeIngredientsListViewDelegate.swift in Sources */,
 				84136C651CB152F600C486CD /* Protocols.swift in Sources */,
 				848B85631CA1942C004DD62C /* InFridgeListViewController.swift in Sources */,
+				8421EC101D16CDC20056BFEE /* ConverterAPI.swift in Sources */,
 				845251C71CA13ED300D23E45 /* AppDelegate.swift in Sources */,
 				848B856B1CA28443004DD62C /* Ingredient.swift in Sources */,
 				845251CF1CA13ED300D23E45 /* Fridgit.xcdatamodeld in Sources */,

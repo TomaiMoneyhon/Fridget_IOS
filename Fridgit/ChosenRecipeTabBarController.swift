@@ -13,18 +13,18 @@ class ChosenRecipeTabBarController: UITabBarController {
     var chosenRecipeID : Int!
     var chosenRecipe :AnyObject!
     var ingredients : NSArray!
-    let spoonacularAPI = SpoonacularAPI()
+//    let spoonacularAPI = SpoonacularAPI()
     
     
     override func viewDidLoad() {
         
-        spoonacularAPI.getChosenRecipe(chosenRecipeID) {result in
+        SpoonacularAPI.getChosenRecipe(chosenRecipeID) {result in
             dispatch_async(dispatch_get_main_queue()) {
                 self.chosenRecipe = result
-                //self.ingredients = self.chosenRecipe.valueForKey("extendedIngredients") as! NSArray
-                //print(self.ingredients)
+                self.ingredients = self.chosenRecipe.valueForKey("extendedIngredients") as! NSArray
+                print(self.ingredients)
                 var vcs = self.viewControllers
-                var vc = vcs![0] as! ChosenRecipeIngredientsViewController
+                let vc = vcs![0] as! ChosenRecipeIngredientsViewController
                 vc.loadViewController(result)
             }
         }

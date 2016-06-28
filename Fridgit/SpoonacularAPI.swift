@@ -11,11 +11,10 @@ import UIKit
 class SpoonacularAPI: NSObject {
     
     let spoonacularAPIKEYTEST = "u2ZGgoREd8msh4ysiDyz5yJn2Gmlp1Wos17jsnAYUQMHvhAX0A"
-    let numberOfRecipes = 50
+    static let numberOfRecipes = 50
+    static var recipeListResults : NSArray!
     
-    
-    
-    func getResultFromURL(urlString: String, completion: ((result: AnyObject) ->Void)){
+     static func getResultFromURL(urlString: String, completion: ((result: AnyObject) ->Void)){
         
         var URLResult : AnyObject!
         
@@ -52,7 +51,7 @@ class SpoonacularAPI: NSObject {
     }
 
     
-    func getRecipesByIngredients(ingredients: [Ingredient], completion: ((result: NSArray) -> Void)) {
+    static func getRecipesByIngredients(ingredients: [Ingredient], completion: ((result: NSArray) -> Void)) {
         
         var findByIngredientURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="
         
@@ -76,7 +75,7 @@ class SpoonacularAPI: NSObject {
     }
     
     
-    func getChosenRecipe(recipeID: Int, completion: ((result: AnyObject) ->Void)) {
+    static func getChosenRecipe(recipeID: Int, completion: ((result: AnyObject) ->Void)) {
         
         let chosenRecipeURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + String(recipeID) + "/information?includeNutrition=false"
         
@@ -86,6 +85,10 @@ class SpoonacularAPI: NSObject {
             }
         }
     }
+//TODO Not done
+//    static func getRecipeImageURL() -> NSURL {
+//        let ImageURl
+//    }
 }
 
 

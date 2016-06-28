@@ -8,11 +8,6 @@
 
 import UIKit
 
-//protocol FromFridgeListProtocol: class {
-//    func sendtoShoppingList(toSave: Ingredient)
-//    func openEditPopOver(toEdit: Ingredient, atIndex: Int)
-//}
-
 class InFridgeListViewDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     var fridgeList = [Ingredient]()
@@ -83,8 +78,13 @@ class InFridgeListViewDelegate: NSObject, UITableViewDataSource, UITableViewDele
         }
     }
     
-    func loadIngredients() -> [Ingredient]? {
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(FileDirectories.fridgeDirectory.path!) as? [Ingredient]
+    func loadIngredients() {
+        if let loadedIngredients = NSKeyedUnarchiver.unarchiveObjectWithFile(FileDirectories.fridgeDirectory.path!) as? [Ingredient] {
+            fridgeList = loadedIngredients
+        }
+        else {
+            print ("loading fridgeList failed")
+        }
     }
 
 }

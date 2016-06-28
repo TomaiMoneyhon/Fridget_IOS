@@ -10,9 +10,19 @@ import UIKit
 
 class ChoosenRecipeDirectionsViewController: UIViewController {
 
+    var tabBarControllerVC : ChosenRecipeTabBarController!
+    
+    @IBOutlet weak var webView: UIWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tabBarControllerVC = self.tabBarController as! ChosenRecipeTabBarController
+        
+        var directionsURL = NSURL(string: String(tabBarControllerVC.chosenRecipe.valueForKey("sourceUrl")!))
+        
+        let request = NSURLRequest(URL: directionsURL!)
+        webView.loadRequest(request)
         // Do any additional setup after loading the view.
     }
 

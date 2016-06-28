@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShoppingListViewController: UIViewController, SaveProtocol, FromShoppingListProtocol {
+class ShoppingListViewController: UIViewController, EditProtocol,SaveNewIngredientProtocol, FromShoppingListProtocol {
     
     @IBOutlet weak var shoppingListTableView: UITableView!
     let shoppingListDelegate = ShoppingListTableViewDelegate()
@@ -20,16 +20,15 @@ class ShoppingListViewController: UIViewController, SaveProtocol, FromShoppingLi
         //FOR TESTING
         //shoppingListDelegate.addToShoppingList(Ingredient(name: "eggs", amount: 12, amountKind: amounts.Unit))
         
-        inFridgeVC = storyboard!.instantiateViewControllerWithIdentifier(IDs.InFridgeListStoyboardID) as! InFridgeListViewController
-        inFridgeVC.loadView()
-        inFridgeVC.viewDidLoad()
+        let barViewControllers = self.tabBarController?.viewControllers
+        inFridgeVC = barViewControllers![1].childViewControllers[0] as! InFridgeListViewController
+
+        inFridgeVC.loadViewIfNeeded()
         
         shoppingListTableView.dataSource = shoppingListDelegate
         shoppingListTableView.delegate = shoppingListDelegate
         shoppingListDelegate.fromShoppingListProtocol = self
-        if let loadedIngredient = shoppingListDelegate.loadIngredients() {
-            shoppingListDelegate.shoppingList = loadedIngredient
-        }
+        shoppingListDelegate.loadIngredients()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -55,6 +54,7 @@ class ShoppingListViewController: UIViewController, SaveProtocol, FromShoppingLi
     }
     
     func sendtoFridge(toSave: Ingredient) {
+
         inFridgeVC.saveToFridgeList(toSave)
     }
     
@@ -64,7 +64,7 @@ class ShoppingListViewController: UIViewController, SaveProtocol, FromShoppingLi
         
         VC.ingredientToEdit = toEdit
         VC.itemIndex = atIndex
-        VC.saveDelegate = self
+        VC.editDelegate = self
         
         presentViewController(VC, animated: true, completion: nil)
     }
@@ -74,8 +74,7 @@ class ShoppingListViewController: UIViewController, SaveProtocol, FromShoppingLi
         switch segue.identifier! {
         case Identifiers.toRecipeListFromShoppingSegue:
             let recipeListViewController = segue.destinationViewController as! RecipeListViewController
-            
-           recipeListViewController.inFridgeList = inFridgeVC.inFridgeListDelegate.fridgeList
+            recipeListViewController.inFridgeList = inFridgeVC.inFridgeListDelegate.fridgeList
             
         case Identifiers.toAddIngredientSegue:
              let saveViewContoller = segue.destinationViewController as! AddIngredientViewController
@@ -83,9 +82,21 @@ class ShoppingListViewController: UIViewController, SaveProtocol, FromShoppingLi
         default:
             return
         }
-        
-        
-        
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        switch identifier {
+        case Identifiers.toRecipeListFromShoppingSegue:
+            if inFridgeVC.inFridgeListDelegate.fridgeList.count == 0 {
+                return false
+                //TODO Add alert "you dont have anything in your fridge"
+            }
+            else {
+                return true
+            }
+        default:
+            return true
+        }
     }
 
     /*
