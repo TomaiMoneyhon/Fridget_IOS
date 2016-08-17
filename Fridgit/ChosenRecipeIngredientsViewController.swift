@@ -8,17 +8,17 @@
 
 import UIKit
 
-class ChosenRecipeIngredientsViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate {
+class ChosenRecipeIngredientsViewController: UIViewController, ChangeServingSizeProtocol {
 
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var ingredientsTableView: UITableView!
-    var recipeDirectionsVC : ChoosenRecipeDirectionsViewController!
+//    var recipeDirectionsVC : ChoosenRecipeDirectionsViewController!
     var tabBarControllerVC : ChosenRecipeTabBarController!
     weak var chosenRecipeDelegate : ChosenRecipeProtocol?
-//    var chosenRecipe : AnyObject!
-    var haveRecipe = false
-    var ingredients = []
+    let chosenRecipeIngredientListViewDelegate = ChosenRecipeIngredientListViewDelegate()
+//    var haveRecipe = false
+//    var ingredients = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,53 +27,52 @@ class ChosenRecipeIngredientsViewController: UIViewController,  UITableViewDataS
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
         
-        ingredientsTableView.delegate = self
-        ingredientsTableView.dataSource = self
+        ingredientsTableView.delegate = chosenRecipeIngredientListViewDelegate
+        ingredientsTableView.dataSource = chosenRecipeIngredientListViewDelegate
         
         tabBarControllerVC = self.tabBarController as! ChosenRecipeTabBarController
-        
-//        recipeDirectionsVC = storyboard?.instantiateViewControllerWithIdentifier(IDs.ChosenRecipeDirectionsID) as! ChoosenRecipeDirectionsViewController
-//        recipeDirectionsVC.loadView()
-//        recipeDirectionsVC.viewDidLoad()
-
     }
     
     func loadViewController(recievedRecipe: AnyObject) {
-//        chosenRecipe = recievedRecipe
-        //chosenRecipe = tabBarControllerVC.chosenRecipe
-        ingredients = tabBarControllerVC.chosenRecipe.valueForKey("extendedIngredients") as! NSArray
-        ///print(chosenRecipe)
+        
+        chosenRecipeIngredientListViewDelegate.ingredients = tabBarControllerVC.chosenRecipe.valueForKey(ProtertyKey.extendedIngredientsKey) as! NSArray
+        chosenRecipeIngredientListViewDelegate.inFridgeList = tabBarControllerVC.inFridgeList
+        chosenRecipeIngredientListViewDelegate.initialServingSize = tabBarControllerVC.chosenRecipe.valueForKey(ProtertyKey.servingSizeKey) as! Double
 
         activityIndicator.stopAnimating()
         ingredientsTableView.reloadData()
         ingredientsTableView.hidden = false
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+    func changeServingSize(toServingSize: Double) {
+        chosenRecipeIngredientListViewDelegate.currentServingSize = toServingSize
+        ingredientsTableView.reloadData()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ingredients.count
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch segue.identifier! {
+        case Identifiers.toChangeServingSizeSegue:
+            
+            let changeServingSizeController = segue.destinationViewController as! ChangeServingSizeViewController
+            print(tabBarControllerVC.chosenRecipe.valueForKey(ProtertyKey.servingSizeKey))
+            
+            if let cServingSize = chosenRecipeIngredientListViewDelegate.currentServingSize{
+               changeServingSizeController.ServingSize = cServingSize
+            }else{
+                changeServingSizeController.ServingSize = tabBarControllerVC.chosenRecipe.valueForKey(ProtertyKey.servingSizeKey) as! Double
+            }
+            changeServingSizeController.servingSizeProtocol = self
         
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(Identifiers.ChosenIngredientsCustomListCell) as? CustomListTableViewCell
-        
-        if (cell == nil){
-            cell = CustomListTableViewCell(style: .Default, reuseIdentifier: Identifiers.ChosenIngredientsCustomListCell)
+        default:
+            return
         }
-        let oneIngreditent = ingredients[indexPath.row] as! NSObject
-        let amount = oneIngreditent.valueForKey("amount")
-        let name = oneIngreditent.valueForKey("name") as! String
-        
-        
-        cell!.ingredientLabel.text = name
-        cell!.amountLabel.text = String(amount!) + " " + String(oneIngreditent.valueForKey("unit")!)
-        
+    }
     
-        
+    @IBAction func AddMissingIngrediedntsToShoppingList(sender: UIButton) {
+       chosenRecipeIngredientListViewDelegate.addMissingIngredientsToShoppingList()
+    }
+    
+    
 //        let converter = ConverterAPI()
 //        
 //         var numberer = converter.convert(amount, fromUnit: "teaspoonUK", toUnit: "liter", converter: Converters.CookingUnits)
@@ -133,9 +132,7 @@ class ChosenRecipeIngredientsViewController: UIViewController,  UITableViewDataS
 //            
 //            break;
 //       }
-        
-        return cell!
-    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

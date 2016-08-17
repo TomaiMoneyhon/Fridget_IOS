@@ -35,17 +35,24 @@ class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableVi
         
         let oneIngredient = shoppingList[indexPath.row]
         cell!.ingredientLabel.text = oneIngredient.name
-        cell!.amountLabel.text = String(oneIngredient.amount) + " " + String(oneIngredient.amountKind)
-        
+        if oneIngredient.amount == -1 {
+            cell!.amountLabel.text = ""
+        }else{
+            cell!.amountLabel.text = String(oneIngredient.amount) + " " + String(oneIngredient.amountKind)
+        }
         return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         let selectedIngredient = shoppingList[indexPath.row]
-        self.deletefromShoppingList(indexPath.row)
-        self.fromShoppingListProtocol?.sendtoFridge(selectedIngredient)
-        tableView.reloadData()
+        
+        if selectedIngredient.amount == -1 {
+            fromShoppingListProtocol?.showNoAmountAlert(selectedIngredient, atIndex: indexPath.row )
+        }else{
+            self.deletefromShoppingList(indexPath.row)
+            self.fromShoppingListProtocol?.sendtoFridge(selectedIngredient)
+            tableView.reloadData()
+        }
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
@@ -53,19 +60,20 @@ class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableVi
         let selectedIngredient = shoppingList[indexPath.row]
         
         let done = UITableViewRowAction(style: .Normal, title: "Done") { action, index in
-            print("done button tapped")
             
-            
-            self.deletefromShoppingList(indexPath.row)
-            self.fromShoppingListProtocol?.sendtoFridge(selectedIngredient)
-            tableView.reloadData()
+            if selectedIngredient.amount == -1 {
+                self.fromShoppingListProtocol?.showNoAmountAlert(selectedIngredient, atIndex: indexPath.row )
+            }else{
+                self.deletefromShoppingList(indexPath.row)
+                self.fromShoppingListProtocol?.sendtoFridge(selectedIngredient)
+                tableView.reloadData()
+            }
             
             
         }
         done.backgroundColor = UIColor.greenColor()
         
         let edit = UITableViewRowAction(style: .Normal, title: "Edit") { action, index in
-            print("edit button tapped")
             
            self.fromShoppingListProtocol?.openEditPopOver(selectedIngredient, atIndex: indexPath.row)
             
@@ -101,7 +109,6 @@ class ShoppingListTableViewDelegate:  NSObject, UITableViewDataSource, UITableVi
             print ("loading shoppingList failed")
         }
     }
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

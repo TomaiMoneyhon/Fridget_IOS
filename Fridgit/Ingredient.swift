@@ -26,6 +26,13 @@ class Ingredient: NSObject, NSCoding {
         self.amountKind = amountKind
     }
     
+    init(name: String) {
+        self.name = name
+        self.amount = -1
+        self.amountPercentage = 1
+        self.amountKind = amounts.Grams
+    }
+    
     init(name: String, amount: Double, amountPercentage: Double, amountKind: amounts) {
         self.name = name
         self.amount = amount

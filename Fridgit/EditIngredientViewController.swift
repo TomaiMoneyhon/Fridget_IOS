@@ -25,7 +25,11 @@ class EditIngredientViewController: UIViewController {
         super.viewDidLoad()
         
         ingredientNameTextField.text = ingredientToEdit.name
+        if ingredientToEdit.amount == -1 {
+            amountTextField.text = ""
+        }else{
         amountTextField.text = String(ingredientToEdit.amount)
+        }
 
         amountKindPicker.dataSource = amountKindPickerViewDelegate
         amountKindPicker.delegate = amountKindPickerViewDelegate
@@ -41,12 +45,12 @@ class EditIngredientViewController: UIViewController {
     }
     
     @IBAction func saveEdit(sender: UIButton) {
-        if (ingredientNameTextField.text! == "" || amountTextField.text! == ""){
             
             ingredientNameTextField.borderStyle = .None
             amountTextField.borderStyle = .None
             ingredientNameERROR.text = ""
             amountERROR.text = ""
+        
             if(ingredientNameTextField.text! == ""){
                 ingredientNameTextField.borderStyle = .RoundedRect
                 ingredientNameTextField.layer.borderColor = (UIColor.redColor()).CGColor
@@ -57,7 +61,7 @@ class EditIngredientViewController: UIViewController {
                 amountTextField.layer.borderColor = (UIColor.redColor()).CGColor
                 amountERROR.text = "No amount found!"
             }
-        }
+
         else if let amountNumber = Double(amountTextField.text!) {
             
             ingredientNameTextField.borderStyle = .None

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShoppingListViewController: UIViewController, EditProtocol,SaveNewIngredientProtocol, FromShoppingListProtocol {
+class ShoppingListViewController: UIViewController, EditProtocol,SaveNewIngredientProtocol, FromShoppingListProtocol, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var shoppingListTableView: UITableView!
     let shoppingListDelegate = ShoppingListTableViewDelegate()
@@ -32,6 +32,7 @@ class ShoppingListViewController: UIViewController, EditProtocol,SaveNewIngredie
     }
     
     override func viewWillAppear(animated: Bool) {
+        shoppingListDelegate.loadIngredients()
         shoppingListTableView.reloadData()
     }
     
@@ -42,6 +43,7 @@ class ShoppingListViewController: UIViewController, EditProtocol,SaveNewIngredie
 
     func saveToShoppingList(toSave: Ingredient) {
         shoppingListDelegate.addToShoppingList(toSave)
+        shoppingListTableView.reloadData()
     }
     
     func saveEdit(toSave: Ingredient, atIndex: Int) {
@@ -69,6 +71,24 @@ class ShoppingListViewController: UIViewController, EditProtocol,SaveNewIngredie
         presentViewController(VC, animated: true, completion: nil)
     }
     
+    func showNoAmountAlert(toEdit: Ingredient, atIndex: Int) {
+        
+        let alert = storyboard!.instantiateViewControllerWithIdentifier(IDs.NoAmountPopoverViewStoryboardID) as! NoAmountPopoverViewController
+        
+        alert.ingredientToEdit = toEdit
+        alert.itemIndex = atIndex
+        alert.editDelegate = self
+        alert.fromShoppingdelegate = self
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func popoverPresentationController(popoverPresentationController: UIPopoverPresentationController, willRepositionPopoverToRect rect: UnsafeMutablePointer<CGRect>, inView view: AutoreleasingUnsafeMutablePointer<UIView?>) {
+        let x = popoverPresentationController.presentingViewController.view.center
+        let newRect = CGRectMake(x.x, x.y, 0, 0)
+        rect.initialize(newRect)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         switch segue.identifier! {
@@ -88,7 +108,14 @@ class ShoppingListViewController: UIViewController, EditProtocol,SaveNewIngredie
         switch identifier {
         case Identifiers.toRecipeListFromShoppingSegue:
             if inFridgeVC.inFridgeListDelegate.fridgeList.count == 0 {
-                return false
+                let alert =  UIAlertController(title: "Your fridge is empty", message: "You don't have anything in your fridge", preferredStyle: .Alert)
+                
+                let okAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+                
+                alert.addAction(okAction)
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+                    return false
                 //TODO Add alert "you dont have anything in your fridge"
             }
             else {
@@ -98,6 +125,8 @@ class ShoppingListViewController: UIViewController, EditProtocol,SaveNewIngredie
             return true
         }
     }
+    
+    
 
     /*
     // MARK: - Navigation

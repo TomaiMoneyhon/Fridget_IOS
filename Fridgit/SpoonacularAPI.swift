@@ -12,7 +12,6 @@ class SpoonacularAPI: NSObject {
     
     let spoonacularAPIKEYTEST = "u2ZGgoREd8msh4ysiDyz5yJn2Gmlp1Wos17jsnAYUQMHvhAX0A"
     static let numberOfRecipes = 50
-    static var recipeListResults : NSArray!
     
      static func getResultFromURL(urlString: String, completion: ((result: AnyObject) ->Void)){
         
@@ -85,10 +84,6 @@ class SpoonacularAPI: NSObject {
             }
         }
     }
-//TODO Not done
-//    static func getRecipeImageURL() -> NSURL {
-//        let ImageURl
-//    }
 }
 
 

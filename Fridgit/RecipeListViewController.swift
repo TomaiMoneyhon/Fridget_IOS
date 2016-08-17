@@ -19,11 +19,13 @@ class RecipeListViewController: UIViewController {
     var results : NSArray!
     var currentRecipe : Int!
 //    let spoonacularAPI = SpoonacularAPI()
+    @IBOutlet weak var makeThisBTN: UIButton!
+    @IBOutlet weak var nextBTN: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicator.startAnimating()
+        //activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
 
         SpoonacularAPI.getRecipesByIngredients(inFridgeList) {result in dispatch_async(dispatch_get_main_queue()) {
@@ -34,18 +36,21 @@ class RecipeListViewController: UIViewController {
     }
     
     func setCurrentRecipe(toRecipe: Int) {
-        let imageURL = NSURL(string: (self.results[toRecipe].valueForKey("image") as? String)!)
+        let imageURL = NSURL(string: (self.results[toRecipe].valueForKey(ProtertyKey.imageKey) as! String))
         currentRecipe = toRecipe
         activityIndicator.startAnimating()
+        nextBTN.enabled = false
+        makeThisBTN.enabled = false
         
         NSURLSession.sharedSession().dataTaskWithURL(imageURL!) { (data, response, error) in
             dispatch_async(dispatch_get_main_queue()) {() -> Void in
                 guard let data = data where error == nil else {return}
                 self.recipeImageView.image = UIImage(data: data)
-                self.recipeName.text = self.results[toRecipe].valueForKey("title") as? String
-                self.recipeMissingItems.text = String(self.results[toRecipe].valueForKey("missedIngredientCount") as! Int)
+                self.recipeName.text = self.results[toRecipe].valueForKey(ProtertyKey.titleKey) as? String
+                self.recipeMissingItems.text = String(self.results[toRecipe].valueForKey(ProtertyKey.missedIngredientsCountKey) as! Int)
                 self.activityIndicator.stopAnimating()
-                
+                self.nextBTN.enabled = true
+                self.makeThisBTN.enabled = true
             }
             }.resume()
         
@@ -67,7 +72,7 @@ class RecipeListViewController: UIViewController {
             
             chosenRecipeIngredientsViewController.inFridgeList = self.inFridgeList
             
-            let ID = self.results[currentRecipe].valueForKey("id") as! Int
+            let ID = self.results[currentRecipe].valueForKey(ProtertyKey.idKey) as! Int
             
             chosenRecipeIngredientsViewController.chosenRecipeID = ID
         }

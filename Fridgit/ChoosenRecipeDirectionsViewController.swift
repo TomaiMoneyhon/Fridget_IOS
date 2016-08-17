@@ -19,7 +19,7 @@ class ChoosenRecipeDirectionsViewController: UIViewController {
         
         tabBarControllerVC = self.tabBarController as! ChosenRecipeTabBarController
         
-        var directionsURL = NSURL(string: String(tabBarControllerVC.chosenRecipe.valueForKey("sourceUrl")!))
+        var directionsURL = NSURL(string: String(tabBarControllerVC.chosenRecipe.valueForKey(ProtertyKey.sourceURLKey)!))
         
         let request = NSURLRequest(URL: directionsURL!)
         webView.loadRequest(request)

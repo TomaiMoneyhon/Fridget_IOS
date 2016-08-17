@@ -42,7 +42,6 @@ class InFridgeListViewDelegate: NSObject, UITableViewDataSource, UITableViewDele
         let selectedIngredient = fridgeList[indexPath.row]
         
         let undo = UITableViewRowAction(style: .Normal, title: "Undo") { action, index in
-            print("undo button tapped")
             
             self.deletefromFridgeList(indexPath.row)
             self.fromFridgeListProtocol?.sendtoShoppingList(selectedIngredient)
@@ -51,7 +50,6 @@ class InFridgeListViewDelegate: NSObject, UITableViewDataSource, UITableViewDele
         undo.backgroundColor = UIColor.greenColor()
         
         let edit = UITableViewRowAction(style: .Normal, title: "Edit") { action, index in
-            print("edit button tapped")
             
             self.fromFridgeListProtocol?.openEditPopOver(selectedIngredient, atIndex: indexPath.row)
         }

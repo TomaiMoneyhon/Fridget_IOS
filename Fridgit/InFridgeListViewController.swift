@@ -82,6 +82,13 @@ class InFridgeListViewController: UIViewController, FromFridgeListProtocol, Edit
         switch identifier {
         case Identifiers.toRecipeListFromFridgeSegue:
             if inFridgeListDelegate.fridgeList.count == 0 {
+                let alert =  UIAlertController(title: "Your fridge is empty", message: "You don't have anything in your fridge", preferredStyle: .Alert)
+                
+                let okAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+                
+                alert.addAction(okAction)
+                
+                self.presentViewController(alert, animated: true, completion: nil)
                 return false
             }
             else {

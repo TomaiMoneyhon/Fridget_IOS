@@ -31,47 +31,49 @@ class AddIngredientViewController: UIViewController {
     }
     @IBAction func save(sender: UIButton) {
 
-        if (ingredientNameTextField.text! == "" || amountTextField.text! == ""){
-            
-            ingredientNameTextField.borderStyle = .None
-            amountTextField.borderStyle = .None
-            ingredientNameERROR.text = ""
-            amountERROR.text = ""
-            if(ingredientNameTextField.text! == ""){
-                ingredientNameTextField.borderStyle = .RoundedRect
-                ingredientNameTextField.layer.borderColor = (UIColor.redColor()).CGColor
-                 ingredientNameERROR.text = "Please type a ingredient!"
-            }
-            if(amountTextField.text! == ""){
-                amountTextField.borderStyle = .RoundedRect
-                amountTextField.layer.borderColor = (UIColor.redColor()).CGColor
-                amountERROR.text = "No amount found!"
-            }
+        ingredientNameTextField.borderStyle = .None
+        amountTextField.borderStyle = .None
+        ingredientNameERROR.text = ""
+        amountERROR.text = ""
+        
+        ingredientNameTextField.borderStyle = .None
+        amountTextField.borderStyle = .None
+        ingredientNameERROR.text = ""
+        amountERROR.text = ""
+        
+        if(ingredientNameTextField.text! == ""){
+            ingredientNameTextField.borderStyle = .RoundedRect
+            ingredientNameTextField.layer.borderColor = (UIColor.redColor()).CGColor
+            ingredientNameERROR.text = "Please type a ingredient!"
+            return
         }
-        else if let amountNumber = Double(amountTextField.text!) {
+        
+        let amountNumber : Double
             
-            ingredientNameTextField.borderStyle = .None
-            amountTextField.borderStyle = .None
-            ingredientNameERROR.text = ""
-            amountERROR.text = ""
-            
-             let savedIngredient = Ingredient(name: ingredientNameTextField.text!, amount: amountNumber, amountKind: amountKindPickerViewDelegate.chosenAmountKind)
-            
-            saveDelegate?.saveToShoppingList(savedIngredient)
-            self.dismissViewControllerAnimated(true, completion: nil)
+        if(amountTextField.text! == ""){
+            amountNumber = -1
+
+        }
+        else if let amountNumb = Double(amountTextField.text!) {
+            amountNumber = amountNumb
         }else{
             //The amount is not a number
             amountTextField.borderStyle = .RoundedRect
             amountTextField.layer.borderColor = (UIColor.redColor()).CGColor
             amountERROR.text = "Amount must be number!"
+            return
         }
+        
+        let savedIngredient = Ingredient(name: ingredientNameTextField.text!, amount: amountNumber, amountKind: amountKindPickerViewDelegate.chosenAmountKind)
+        
+        saveDelegate?.saveToShoppingList(savedIngredient)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
